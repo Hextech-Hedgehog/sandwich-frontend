@@ -3,10 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IndexComponent } from './components/index/index.component';
+import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
+import { OrderSandwichComponent } from './components/order-sandwich/order-sandwich.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IndexComponent,
+    ViewOrdersComponent,
+    OrderSandwichComponent
   ],
   imports: [
     BrowserModule,
