@@ -4,6 +4,8 @@ import {SandwichService} from "../component-services/sandwich-service/sandwich.s
 import {Ingredient} from "../../model/Ingredient.model";
 import {User} from "../../model/user.model";
 import {Sandwich} from "../../model/sandwich.model";
+import {AuthService} from "../../services/auth.service";
+import {NavbarComponent} from "../../shared/navbar/navbar/navbar.component";
 
 @Component({
   selector: 'app-order-sandwich',
@@ -12,13 +14,6 @@ import {Sandwich} from "../../model/sandwich.model";
 })
 export class OrderSandwichComponent implements OnInit {
   entityForm: FormGroup;
-
-  sandwichName: string;
-  shop: string;
-//   ingredients: Ingredient[];
-  asClub: boolean;
-  withButter: boolean;
-  optionalRequirement?: string;
   user: User;
 
   constructor(private sand: SandwichService, private fb: FormBuilder) { }
@@ -40,7 +35,10 @@ export class OrderSandwichComponent implements OnInit {
     sandwich.withButter = this.entityForm.get("butter").value;
     sandwich.optionalRequirement = this.entityForm.get("extra").value;
 
-    // TODO Shop & User
+    sandwich.user = new NavbarComponent().user;   // TODO Shop & User
+    //  sandwich.shop = ;
+
+
 
     this.sand.insert(sandwich);
 
