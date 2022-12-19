@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { NavbarElemConfig } from '../navbar-elem/navbar-elem.component';
 import {Subscription} from "rxjs";
-import {User} from "../../../models/user.model";
+import {User} from "../../../model/user.model";
 import {AuthService} from "../../../services/auth.service";
 import {HomeNavbarService} from "../../../services/home-navbar.service";
 
@@ -22,5 +22,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.elements = this.homeNavbarService.getHomeNavConfig;
+
   }
 }

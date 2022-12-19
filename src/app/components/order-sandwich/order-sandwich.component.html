@@ -1,1 +1,9 @@
-<p>order-sandwich works!</p>
+<h2>Order a sandwich for today!</h2>
+
+<form [formGroup]="entityForm" (ngSubmit)="orderSandwich()">
+  <input type="text" formControlName="name">   <!-- TODO make this a dropdown list -->
+  <input type="checkbox" ngModel="club" [defaultChecked]="false"  >
+  <input type="checkbox" ngModel="butter" [defaultChecked]="false"  >
+  <input name="text" formControlName="extra">
+  <input type="submit" value="Order Sandwich">
+</form>

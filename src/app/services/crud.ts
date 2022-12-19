@@ -4,7 +4,7 @@ import {environment} from "../../environment/environment";
 
 
 export class CrudConfig {
-  single: (id) => string
+  single: (id) => string        // TODO reconfig ??
   many: string;
 }
 

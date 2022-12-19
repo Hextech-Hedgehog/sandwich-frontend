@@ -4,14 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
 import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
 import { OrderSandwichComponent } from './components/order-sandwich/order-sandwich.component';
-import { HomeComponent } from './components/home/home.component';
+import { IndexComponent } from './components/index/index.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environment/environment';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 
-export function tokenGetter() 
+export function tokenGetter()
 {
   return sessionStorage.getItem('token');
 }
@@ -21,7 +21,7 @@ export function tokenGetter()
     AppComponent,
     ViewOrdersComponent,
     OrderSandwichComponent,
-    HomeComponent,
+    IndexComponent,
     LoginComponent
   ],
   imports: [
