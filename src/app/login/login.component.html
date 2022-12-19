@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1>Login</h1>
+    <mat-form-field appearance="outline">
+        <input #username matInput placeholder="username" [formControl]="ctlUsername" required appSetFocus>
+        <mat-error class="field-error" *ngIf="ctlUsername.hasError('required')">Required</mat-error>
+        <mat-error class="field-error" *ngIf="ctlUsername.hasError('custom')">{{ctlUsername.errors.custom}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <input matInput [type]="!hide ? 'password' : 'text'" placeholder="Password" [formControl]="ctlPassword" required>
+        <a class="password-visibility" type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </a>
+        <mat-error class="field-error" *ngIf="ctlPassword.hasError('required')">Required</mat-error>
+        <mat-error class="field-error" *ngIf="ctlPassword.hasError('custom')">{{ctlPassword.errors.custom}}
+        </mat-error>
+    </mat-form-field>
+    <div>
+        <button mat-stroked-button>Login</button>
+    </div>
+</form>
