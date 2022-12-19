@@ -1,6 +1,6 @@
-import {Entity} from "./entity.model";
-import {User} from "./user.model";
-import {Order} from "./order.model";
+import {Entity} from "./entity";
+import {User} from "./user";
+import {Order} from "./order";
 
 export class Session extends Entity {
 

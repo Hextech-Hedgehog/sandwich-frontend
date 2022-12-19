@@ -1,4 +1,4 @@
-import {Entity} from "./entity.model";
+import {Entity} from "./entity";
 
 export class Ingredient extends Entity {
 

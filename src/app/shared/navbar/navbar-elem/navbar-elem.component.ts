@@ -12,7 +12,7 @@ export interface NavbarElemConfig
 @Component({
   selector: 'app-navbar-elem',
   templateUrl: './navbar-elem.component.html',
-  styleUrls: ['./navbar-elem.component.css']
+  styleUrls: ['./navbar-elem.component.scss']
 })
 export class NavbarElemComponent implements OnInit {
   @Input() item: NavbarElemConfig;

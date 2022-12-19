@@ -18,7 +18,7 @@ class DecodedToken
   providedIn: 'root'
 })
 export class AuthService {
-  private connectUser: User;
+  private currentUser: User;
   private authStatusSubject: Subject<User>;
 
   constructor(
@@ -33,10 +33,10 @@ export class AuthService {
       let user = new User();
       user.token = sessionStorage.getItem('token');
       this.processToken(user);
-      this.userService.find(this.connectUser.id)
+      this.userService.find(this.currentUser.id)
         .subscribe((user) => {
-          user.token = this.connectUser.token;
-          this.connectUser = user;
+          user.token = this.currentUser.token;
+          this.currentUser = user;
           this.authStatusSubject.next(user);
         });
     }
@@ -64,7 +64,7 @@ export class AuthService {
 
   public logout()
   {
-    this.connectUser = null;
+    this.currentUser = null;
     sessionStorage.clear();
     this.authStatusSubject.next(null);
   }
@@ -76,8 +76,8 @@ export class AuthService {
     const decodeToken = this.jwtService.decodeToken(token) as DecodedToken;
 
     let expTime = (decodeToken.exp * 1000) - Date.now();
-    this.connectUser = user;
-    this.connectUser.id = decodeToken.id;
+    this.currentUser = user;
+    this.currentUser.id = decodeToken.id;
 
     if(expTime <= 0)
     {
@@ -86,12 +86,12 @@ export class AuthService {
   }
 
   get getUser(){
-    if(this.connectUser)
+    if(this.currentUser)
     {
       // to check if the token is still valid
-      this.processToken(this.connectUser);
+      this.processToken(this.currentUser);
     }
 
-    return this.connectUser;
+    return this.currentUser;
   }
 }

@@ -1,5 +1,5 @@
-import {Entity} from "./entity.model";
-import {Sandwich} from "./sandwich.model";
+import {Entity} from "./entity";
+import {Sandwich} from "./sandwich";
 
 export class Shop extends Entity {
 

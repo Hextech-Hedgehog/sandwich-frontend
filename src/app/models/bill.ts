@@ -1,5 +1,5 @@
-import {Entity} from "./entity.model";
-import {Order} from "./order.model";
+import {Entity} from "./entity";
+import {Order} from "./order";
 
 export class Bill extends Entity {
 

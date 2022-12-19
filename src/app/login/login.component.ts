@@ -10,6 +10,7 @@ import { User } from '../models/user';
     styleUrls: ['login.component.scss']
 })
 export class LoginComponent implements OnInit {
+    loading = false;
     loginForm: FormGroup;
     submitted = false;  
     returnUrl: string;
@@ -55,10 +56,25 @@ export class LoginComponent implements OnInit {
         user.password = this.form['password'].value;
 
         this.authService.login(user)
-            .subscribe((user) => 
-            {
-                this.router.navigate([this.returnUrl]);
+            .subscribe({
+                next: () => this.router.navigate([this.returnUrl]),
+                error: (error) => {
+                    console.log('catching error');
+                    //console.log(error.error.description);
+                    this.loading = false;
+                },
+                complete: () => console.log('request terminated')
             });
+
+            /*
+            error => {
+                    const errors = error.error.errors;
+                    for (let field in errors) {
+                        this.loginForm.get(field.toLowerCase()).setErrors({ custom: errors[field] })
+                    }
+                    this.loading = false;
+            */
+
     }
 
 }
