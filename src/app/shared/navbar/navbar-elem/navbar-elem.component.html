@@ -8,7 +8,7 @@
 
 <li [ngClass]="item.position == 'left' ? 'nav-pos-left' : 'nav-pos-right'" *ngIf="item.callback" class="nav-item">
     <span class="nav-item-extra" *ngIf="!!user">{{item.extraValue}}</span>
-    <a class="nav-link text-dark" [routerLink]='[item.route]'>
+    <a class="nav-link text-dark" [routerLink]='[item.route]' (click)="item.callback()">
         <span class="material-icons" *ngIf="!!item.icon">{{item.icon}}</span>
         <span> {{item.value}} </span>
     </a>

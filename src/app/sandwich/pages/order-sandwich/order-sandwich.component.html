@@ -1,0 +1,19 @@
+<div class="order-sandwich-page-wrapper">
+    <div class="sandwich-controls">
+        <input #sandwichname class="sandwich-name-input" type="text" placeholder="Sandwich name..." [matAutocomplete]="sandwich" maxlength="256" (input)="searchSandwich(sandwichname.value)">
+        <mat-autocomplete #sandwich="matAutocomplete" [displayWith]="displaySandwichName" (optionSelected)="selectedOption=$event.option.value">
+            <mat-option #autoCompleteOption *ngFor="let sandwich of sandwiches | async; let i = index;" [value]="sandwich">
+                {{sandwich.sandwichName}}
+            </mat-option>
+        </mat-autocomplete>
+    </div>
+</div>
+
+   <!-- <input #username class="new-section-title" type="text" placeholder="Username..." [matAutocomplete]="auto" maxlength="20" (input)="searchUser(username.value)">
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayUsername" (optionSelected)="optionValue=$event.option.value">
+                                <mat-option #autoCompleteOption *ngFor="let user of users | async" [disabled]="AlreadyJoined(user.id)" [value]="user" (click)="AlreadyJoined(user.id) || disabled = !disabled; stopPropagation($event);">
+                                    {{user.pseudo}}
+                                    <small *ngIf="AlreadyJoined(user.id)">Joined</small>
+                                </mat-option>
+                            </mat-autocomplete>
+</div>-->

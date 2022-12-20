@@ -27,6 +27,12 @@ export class HomeNavbarService {
             position: 'right'
         },
         {
+          value: 'Sandwich',
+          route: '/sandwich',
+          access: 'auth',
+          position: 'left'
+      },
+        {
             value: 'Logout',
             route: '/login',
             access: 'auth',
