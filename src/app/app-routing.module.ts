@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: 'user', loadChildren: () => import('./user/user.module')
     .then((m) => m.UserModule)
-  } 
+  },
+  {
+    path: 'sandwich', loadChildren: () => import('./sandwich/sandwich.module')
+    .then((m) => m.SandwichModule)
+  }
 ];
 
 @NgModule({

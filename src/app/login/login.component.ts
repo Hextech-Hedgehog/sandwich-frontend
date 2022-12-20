@@ -64,16 +64,6 @@ export class LoginComponent implements OnInit {
                 },
                 //complete: () => console.log('request terminated')
             });
-
-            /*
-            error => {
-                    const errors = error.error.errors;
-                    for (let field in errors) {
-                        this.loginForm.get(field.toLowerCase()).setErrors({ custom: errors[field] })
-                    }
-                    this.loading = false;
-            */
-
     }
 
 }

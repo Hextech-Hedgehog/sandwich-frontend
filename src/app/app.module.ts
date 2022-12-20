@@ -7,7 +7,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
-import { OrderSandwichComponent } from './components/order-sandwich/order-sandwich.component';
 import { HomeComponent } from './components/home/home.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environment/environment';
@@ -23,7 +22,6 @@ export function tokenGetter()
     declarations: [
         AppComponent,
         ViewOrdersComponent,
-        OrderSandwichComponent,
         HomeComponent,
         LoginComponent
     ],
