@@ -1,20 +1,20 @@
-import { Injectable } from '@angular/core';
-import {Crud, CrudConfig} from "./crud";
-import {User} from "../model/user.model";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { User } from "../models/user";
+import { Crud, CrudConfig } from "./crud";
 
 const config: CrudConfig = {
-  many: 'user',
-  single: (id) => 'user/${id}'
+    many: 'user',
+    single: (id) => `user/${id}`
 }
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class UserService extends Crud<User> {
-
-  constructor(protected httpC: HttpClient) {
-    super(httpC, config)
-  }
-
+    constructor(protected httpC: HttpClient)
+    {
+        super(httpC, config);
+    }
 }
+
