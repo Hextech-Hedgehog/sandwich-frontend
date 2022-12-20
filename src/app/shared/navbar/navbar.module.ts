@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLinkWithHref, RouterModule } from "@angular/router";
 import { NavbarElemComponent } from './navbar-elem/navbar-elem.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
     declarations: [
-        NavbarElemComponent
+      NavbarComponent,
+      NavbarElemComponent
     ],
     exports: [
-        NavbarElemComponent
+      NavbarElemComponent,
+      NavbarComponent
     ],
   imports: [
     RouterModule,

@@ -14,15 +14,24 @@ export class HomeNavbarService {
     this.navbarConfig = [
         {
             value: 'Home',
-            route: '/'
+            route: '/',
+            access: 'all',
+            icon: 'home',
+            position: 'left'
         },
         {
             value: 'Login',
-            route: '/login'
+            route: '/login',
+            access: 'disconnected',
+            icon: 'login',
+            position: 'right'
         },
         {
             value: 'Logout',
             route: '/login',
+            access: 'auth',
+            icon: 'power_settings_new',
+            position: 'right',
             callback: () => {
                 this.authService.logout();
             },

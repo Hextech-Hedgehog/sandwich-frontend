@@ -1,6 +1,6 @@
-import {Entity} from "./entity.model";
-import {User} from "./user.model";
-import {Ingredient} from "./Ingredient.model";
+import {Entity} from "./entity";
+import {User} from "./user";
+import {Ingredient} from "./Ingredient";
 
 export class Sandwich extends Entity {
 

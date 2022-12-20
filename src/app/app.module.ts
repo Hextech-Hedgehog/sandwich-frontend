@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+
 import { ViewOrdersComponent } from './components/view-orders/view-orders.component';
 import { OrderSandwichComponent } from './components/order-sandwich/order-sandwich.component';
 import { HomeComponent } from './components/home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environment/environment';
 import { SharedModule } from './shared/shared.module';
@@ -17,26 +20,30 @@ export function tokenGetter()
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ViewOrdersComponent,
-    OrderSandwichComponent,
-    HomeComponent,
-    LoginComponent
-  ],
-  imports: [
-    SharedModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        allowedDomains: [environment.api.domain]
-      }
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ViewOrdersComponent,
+        OrderSandwichComponent,
+        HomeComponent,
+        LoginComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+      BrowserModule,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpClientModule,
+      BrowserAnimationsModule,
+        SharedModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: tokenGetter,
+                allowedDomains: [environment.api.domain]
+            }
+        })
+    ]
 })
 export class AppModule { }
