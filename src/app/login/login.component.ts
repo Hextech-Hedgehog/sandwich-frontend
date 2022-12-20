@@ -59,11 +59,10 @@ export class LoginComponent implements OnInit {
             .subscribe({
                 next: () => this.router.navigate([this.returnUrl]),
                 error: (error) => {
-                    console.log('catching error');
-                    //console.log(error.error.description);
+                    this.loginForm.get("username").setErrors({ custom: error.error.description });
                     this.loading = false;
                 },
-                complete: () => console.log('request terminated')
+                //complete: () => console.log('request terminated')
             });
 
             /*

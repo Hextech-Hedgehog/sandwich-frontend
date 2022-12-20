@@ -53,6 +53,9 @@ export class AuthService {
       .pipe(map((user) => {
         if(user && user.token)
         {
+          console.log(user.id);
+          const decodeToken = this.jwtService.decodeToken(user.token) as DecodedToken;
+          console.log(decodeToken);
           this.processToken(user);
         }
 
@@ -78,6 +81,8 @@ export class AuthService {
     let expTime = (decodeToken.exp * 1000) - Date.now();
     this.currentUser = user;
     this.currentUser.id = decodeToken.id;
+    this.currentUser.username = decodeToken.sub;
+    console.log('user id: ' + decodeToken.id);
 
     if(expTime <= 0)
     {

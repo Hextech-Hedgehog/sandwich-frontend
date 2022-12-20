@@ -1,3 +1,10 @@
-<ng-container *ngFor="let elem of elements">
-    <app-navbar-elem [item]="elem"></app-navbar-elem>
-</ng-container>
+<div class="container">
+    <ul class="nav-list">
+        <ng-container *ngFor="let elem of elements">
+            <ng-container *ngIf="connected(elem)">
+                <app-navbar-elem class="nav-bar" [item]="elem"></app-navbar-elem>
+            </ng-container>
+        </ng-container>
+    </ul>
+</div>
+
