@@ -1,9 +1,6 @@
-import { NgModule } from '@angular/core';
-import { LoginComponent } from "./login/login.component";
-import { RouterModule, Routes } from '@angular/router';
-import {IndexComponent} from "./components/index/index.component";
-import {OrderSandwichComponent} from "./components/order-sandwich/order-sandwich.component";
-import {ViewOrdersComponent} from "./components/view-orders/view-orders.component";
+import {NgModule} from '@angular/core';
+import {LoginComponent} from "./login/login.component";
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
 
