@@ -4,7 +4,7 @@ import {environment} from "../../environment/environment";
 import {map, Subject} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {UserService} from "./user.service";
-import {User} from "../model/user.model";
+import {User} from "../models/user";
 
 class DecodedToken
 {

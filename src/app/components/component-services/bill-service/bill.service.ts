@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Crud, CrudConfig} from "../../../services/crud";
-import {Bill} from "../../../model/bill.model";
+import {Bill} from "../../../models/bill";
 
 const config: CrudConfig = {
   many: 'bill',
