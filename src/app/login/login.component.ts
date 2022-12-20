@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { AuthService } from '../services/auth.service';
-import { User } from '../models/user';
+import {User} from "../model/user.model";
+
 
 @Component({
     templateUrl: 'login.component.html',
@@ -11,7 +12,7 @@ import { User } from '../models/user';
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
-    submitted = false;  
+    submitted = false;
     returnUrl: string;
     ctlUsername: FormControl;
     ctlPassword: FormControl;
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
-    
+
         this.ctlUsername = this.formBuilder.control('', Validators.required);
         this.ctlPassword = this.formBuilder.control('', Validators.required);
         this.loginForm = this.formBuilder.group({
@@ -47,7 +48,7 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
-        if (this.loginForm.invalid) 
+        if (this.loginForm.invalid)
             return;
 
         const user = new User();
@@ -55,7 +56,7 @@ export class LoginComponent implements OnInit {
         user.password = this.form['password'].value;
 
         this.authService.login(user)
-            .subscribe((user) => 
+            .subscribe((user) =>
             {
                 this.router.navigate([this.returnUrl]);
             });

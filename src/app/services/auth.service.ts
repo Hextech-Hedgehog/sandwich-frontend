@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {User} from "../models/user";
 import {environment} from "../../environment/environment";
 import {map, Subject} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {UserService} from "./user.service";
+import {User} from "../model/user.model";
 
 class DecodedToken
 {

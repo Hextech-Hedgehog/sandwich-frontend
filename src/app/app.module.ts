@@ -10,6 +10,9 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environment/environment';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
+import {NavbarComponent} from "./shared/navbar/navbar/navbar.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 export function tokenGetter()
 {
@@ -22,11 +25,15 @@ export function tokenGetter()
     ViewOrdersComponent,
     OrderSandwichComponent,
     IndexComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     SharedModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     JwtModule.forRoot({
@@ -38,5 +45,8 @@ export function tokenGetter()
   ],
   providers: [],
   bootstrap: [AppComponent]
+
+
+
 })
 export class AppModule { }
